@@ -1,0 +1,13 @@
+domain_map:
+  marketing:
+    description: Marketing, Campaigns, Leads, etc
+context_routing: 
+  marketing:
+    always_load:
+      - ./marketing/context/playbook.md
+    load_on_demand:
+      - ./marketing/context/brand-strategy.md
+      - ./marketing/context/brand-voice.md
+      - ./marketing/context/visual-identity.md
+    never_load:
+      - ./marketing/data/raw/
