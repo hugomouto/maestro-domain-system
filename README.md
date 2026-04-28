@@ -72,7 +72,7 @@ context_routing:
 
 ---
 
-## Como usar
+## Como Começar a Usar
 
 ### Criando um domínio com o script (recomendado)
 
@@ -95,16 +95,6 @@ Escolha:
 
 - Opção **1**: informe o nome do domínio e toda a estrutura de pastas + `playbook.md` é criada automaticamente.
 - Opção **2**: escolha uma pasta já existente para aplicar a estrutura padrão dentro dela.
-
-### Configurando o `.gitignore`
-
-Para ignorar automaticamente arquivos de mídia e PDFs (recomendado para evitar commitar dados brutos):
-
-```bash
-python domain-scripts/.domain-scripts/setup_gitignore.py
-```
-
-Adiciona extensões como `*.jpg`, `*.png`, `*.pdf`, `*.webp` ao `.gitignore` da raiz, sem duplicar entradas já existentes.
 
 ### Fluxo completo
 
