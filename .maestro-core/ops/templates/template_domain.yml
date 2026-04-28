@@ -1,0 +1,13 @@
+domain_map:
+  {{DOMAIN_NAME}}:
+    description: {{DOMAIN_DESCRIPTION}}
+
+context_routing: 
+  {{DOMAIN_NAME}}:
+    always_load:
+      - ./{{DOMAIN_NAME}}/context/playbook.md 
+    load_on_demand:
+      - ./{{DOMAIN_NAME}}/{{CONTEXT_DIR}}/file_example.md
+      - ./{{DOMAIN_NAME}}/{{CONTEXT_DIR}}/file_example.md
+    never_load:
+      - ./{{DOMAIN_NAME}}/{{DATA_DIR}}/raw/

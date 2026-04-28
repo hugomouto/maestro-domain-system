@@ -1,5 +1,7 @@
 # maestro-domain-system
 
+![maestro-cover](maestro-cover.png)
+
 Sistema de organização de contexto para agentes de IA baseado em **domínios**. Define uma estrutura de pastas padronizada e um arquivo de roteamento (`domain.yaml`) que instrui o agente quais arquivos de contexto carregar para cada área de trabalho.
 
 ---
