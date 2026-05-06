@@ -74,14 +74,34 @@ context_routing:
 
 ---
 
-## Como Começar a Usar
+## Instalação
 
-### Criando um domínio com o script (recomendado)
-
-O grande barato do repositório: em vez de criar as pastas na mão, rode o script gerador:
+Em qualquer projeto, rode:
 
 ```bash
-python domain-scripts/.domain-scripts/create_domain.py
+curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+O script:
+- Cria `.maestro-core/` com scripts, templates e instruções
+- Cria `CLAUDE.md` apontando para as instruções do Maestro — ou acrescenta o bloco se `CLAUDE.md` já existir
+
+Para atualizar o Maestro em um projeto existente, rode o mesmo comando novamente.
+
+---
+
+## Como Começar a Usar
+
+### 1. Instale o Maestro
+
+```bash
+curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+### 2. Crie um domínio
+
+```bash
+python .maestro-core/ops/scripts/create_domain.py
 ```
 
 Ele abre um menu interativo no terminal:
@@ -98,9 +118,10 @@ Escolha:
 - Opção **1**: informe o nome do domínio e toda a estrutura de pastas + `playbook.md` é criada automaticamente.
 - Opção **2**: escolha uma pasta já existente para aplicar a estrutura padrão dentro dela.
 
-### Fluxo completo
+### 3. Fluxo completo
 
-1. Rode `create_domain.py` para gerar a estrutura do domínio.
-2. Escreva o `playbook.md` com as regras e contexto permanente do domínio.
-3. Registre o domínio e suas rotas de contexto no `domain.yaml`.
-4. Ao iniciar uma sessão, informe ao agente qual domínio está ativo — ele saberá quais arquivos carregar.
+1. Instale com `maestro-update.sh`
+2. Rode `create_domain.py` para gerar a estrutura do domínio
+3. Escreva o `playbook.md` com as regras e contexto permanente do domínio
+4. Registre o domínio e suas rotas de contexto no `domain.yaml`
+5. Ao iniciar uma sessão, informe ao agente qual domínio está ativo — ele saberá quais arquivos carregar

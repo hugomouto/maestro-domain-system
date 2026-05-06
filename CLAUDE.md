@@ -4,41 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working in this
 
 ## O que e este repositorio
 
-{{DESCRIPTION}}
+Sistema de context routing por domínios para agentes de IA. Cada domínio encapsula suas regras, dados e tarefas em uma estrutura padronizada. O `domain.yaml` controla quais arquivos entram em contexto — evitando sobrecarga e mantendo as sessões focadas.
 
-## Criar Domínio
+## Mapa de domínios
 
-Rode o script `.maestro-core/ops/scripts/create_domain.py`
-
-## Mapa de dominios
-
-A estrutura completa do repositorio esta em **`domain.yaml`** — ele lista todos os dominios, arquivos-chave, regras de context routing e convencoes de nomeacao.
+A estrutura completa do repositório está em **`domain.yaml`** — ele lista todos os domínios, arquivos-chave, regras de context routing e convenções de nomeação.
 
 | Dominio | Entrada | O que contem |
 |---|---|---|
 
+## Maestro
 
-Cada dominio segue a estrutura padrao documentada em `STRUCTURE.md`:
-
-```
-{dominio}/
-  context/        <- regras permanentes, playbook.md sempre primeiro
-  data/raw/       <- dados brutos (NUNCA carregar em contexto)
-  ops/tasks/      <- trabalho em aberto
-  ops/routines/   <- rituais e rotinas recorrentes
-  ops/templates/  <- modelos reutilizaveis
-  reports/        <- relatorios datados
-  archive/        <- material descontinuado
-```
-
-## Context Budget Protocol
-
-```
-1. Ler o playbook.md do dominio relevante
-2. Decidir UMA VEZ quais context_files carregar (consultar domain.yaml)
-3. Carregar apenas o necessario
-4. Executar
-5. Encerrar — nao recarregar
-```
-
-`data/raw/` nunca entra em contexto. Regras detalhadas de routing em `domain.yaml` § `context_routing`.
+Carregar `.maestro-core/context/instructions.md` no início de cada sessão.
