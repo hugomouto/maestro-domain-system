@@ -86,7 +86,17 @@ O script:
 - Cria `.maestro-core/` com scripts, templates e instruções
 - Cria `CLAUDE.md` apontando para as instruções do Maestro — ou acrescenta o bloco se `CLAUDE.md` já existir
 
-Para atualizar o Maestro em um projeto existente, rode o mesmo comando novamente.
+---
+
+## Atualização
+
+Para receber as últimas diretrizes e scripts do Maestro em um projeto já instalado, rode o mesmo comando na raiz do projeto:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+O script atualiza apenas os arquivos core (`.maestro-core/ops/scripts/`, `.maestro-core/ops/templates/`, instruções) e nunca toca em `CLAUDE.md`, `playbook.md`, tasks, reports ou qualquer conteúdo do projeto.
 
 ---
 
