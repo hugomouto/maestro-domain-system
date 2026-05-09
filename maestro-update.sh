@@ -53,6 +53,22 @@ else
   echo "==> CLAUDE.md já aponta para instructions.md — sem alterações"
 fi
 
+# Lógica do domain.yaml
+if [ ! -f "domain.yaml" ]; then
+  echo "==> domain.yaml não encontrado — criando"
+  cat > domain.yaml <<'EOF'
+# domain.yaml — roteamento de contexto do Maestro
+# Registre seus domínios aqui após rodar create_domain.py
+
+domain_map: {}
+
+context_routing: {}
+EOF
+  echo "==> domain.yaml criado"
+else
+  echo "==> domain.yaml já existe — sem alterações"
+fi
+
 echo ""
 echo "Maestro instalado. Para criar um domínio:"
 echo "  python .maestro-core/ops/scripts/create_domain.py"
