@@ -30,8 +30,7 @@ Carregar `.maestro-core/context/creation_rules.md` sempre que a tarefa envolver 
 
 Resumo:
 - **Zona Livre** (criar sem pedir): `ops/tasks/`, `ops/templates/`, `reports/`, `data/processed/`
-- **Zona Restrita** (pedir antes): `context/`, `ops/routines/`, `domain.yaml`, `CLAUDE.md`, novo domínio
-- **Zona Proibida** (nunca): `data/raw/`, `archive/`, `ops/history/`
+- **Zona Restrita** (pedir antes): `context/`, `ops/routines/`, `domain.yaml`, `CLAUDE.md`, `data/raw/`, `archive/`, `ops/history/`, novo domínio
 
 ---
 
@@ -64,3 +63,9 @@ Resumo:
 1. Ler `{dominio}/context/playbook.md` primeiro
 2. Consultar `domain.yaml` para decidir quais `context_files` carregar
 3. Não recarregar contexto durante a sessão
+
+### Criar arquivos de contexto de domínio em `{DOMAIN}/context/`
+**Se**: um conhecimento for perene a um domínio, fazendo sentido ser revisitado mais pra frente
+**Então**:
+1. Criar em `{DOMAIN}/context/` com extensão `.md` e frontmatter seguindo o padrão decrito em `.maestro-core/context/creation_rules.md
+2. Atualizar `{DOMAIN}/context/playbook.md` com contexto do novo arquivo arquivo criado.

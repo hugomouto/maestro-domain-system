@@ -1,13 +1,12 @@
 domain_map:
-  {{DOMAIN_NAME}}:
-    description: {{DOMAIN_DESCRIPTION}}
+  .maestro-core:
+    description: Framework de context routing — diretivas, templates e scripts do sistema maestro
 
-context_routing: 
-  {{DOMAIN_NAME}}:
+global_rules:
+  never_load:
+    - "**/raw/**"
+
+context_routing:
+  .maestro-core:
     always_load:
-      - ./{{DOMAIN_NAME}}/context/playbook.md 
-    load_on_demand:
-      - ./{{DOMAIN_NAME}}/{{CONTEXT_DIR}}/file_example.md
-      - ./{{DOMAIN_NAME}}/{{CONTEXT_DIR}}/file_example.md
-    never_load:
-      - ./{{DOMAIN_NAME}}/{{DATA_DIR}}/raw/
+      - ./.maestro-core/context/playbook.md

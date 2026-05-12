@@ -16,3 +16,7 @@ A estrutura completa do repositório está em **`domain.yaml`** — ele lista to
 ## Maestro
 
 Carregar `.maestro-core/context/instructions.md` no início de cada sessão.
+
+## Criação de Arquivos
+
+Seguir as diretrizes em `.maestro-core/context/creation_rules.md`
