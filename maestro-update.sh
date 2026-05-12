@@ -30,6 +30,8 @@ curl -sSL "$TARBALL_URL" | tar xz \
   "$STRIP_DIR/.maestro-core/ops/templates/*" \
   "$STRIP_DIR/.maestro-core/context/instructions.md" \
   "$STRIP_DIR/.maestro-core/context/creation_rules.md" \
+  "$STRIP_DIR/.maestro-core/context/playbook.md" \
+  "$STRIP_DIR/.maestro-core/context/roadmap.md" \
   2>/dev/null || true
 
 echo "==> .maestro-core/ atualizado"

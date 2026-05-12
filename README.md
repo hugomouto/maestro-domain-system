@@ -76,10 +76,16 @@ context_routing:
 
 ## Instalação
 
-Em qualquer projeto, rode:
+**Mac / Linux / WSL**
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+**Windows (PowerShell)**
+
+```powershell
+irm https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.ps1 | iex
 ```
 
 O script:
@@ -90,10 +96,18 @@ O script:
 
 ## Atualização
 
-Para receber as últimas diretrizes e scripts do Maestro em um projeto já instalado, rode o mesmo comando na raiz do projeto:
+Para receber as últimas diretrizes e scripts do Maestro em um projeto já instalado, rode o mesmo comando na raiz do projeto.
+
+**Mac / Linux / WSL**
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+**Windows (PowerShell)**
+
+```powershell
+irm https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.ps1 | iex
 ```
 
 O script atualiza apenas os arquivos core (`.maestro-core/ops/scripts/`, `.maestro-core/ops/templates/`, instruções) e nunca toca em `CLAUDE.md`, `playbook.md`, tasks, reports ou qualquer conteúdo do projeto.
@@ -104,8 +118,14 @@ O script atualiza apenas os arquivos core (`.maestro-core/ops/scripts/`, `.maest
 
 ### 1. Instale o Maestro
 
+**Mac / Linux / WSL**
 ```bash
 curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.sh | bash
+```
+
+**Windows (PowerShell)**
+```powershell
+irm https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.ps1 | iex
 ```
 
 ### 2. Crie um domínio
