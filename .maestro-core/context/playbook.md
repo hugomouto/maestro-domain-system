@@ -13,3 +13,11 @@
 `context/roadmap.md`
 - Content: Itens priorizados em NOW / NEXT / LATER para o desenvolvimento do framework maestro
 - Use: Verificar antes de propor novas features ou mudanças estruturais — evita duplicar trabalho planejado
+
+`context/create_files.md`
+- Content: Regras para criação e organização de arquivos no repositório, definindo zonas livre/restrita, nomenclatura, estrutura de frontmatter e proibindo criação na raiz.
+- Use: Sempre que Claude for criar, mover ou modificar arquivos no repositório, garantindo conformidade com as zonas de permissão e convenções de nomeação.
+
+`context/create_domain.md`
+- Content: Instruções para criação de novos domínios usando script, registro em domain.yaml, e gestão de arquivos de contexto dentro de domínios existentes.
+- Use: Claude deve carregar este arquivo ao criar novo domínio, modificar estrutura de domínio, ou registrar domínio em domain.yaml.

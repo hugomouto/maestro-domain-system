@@ -1,6 +1,13 @@
+---
+title: Regras de Criação de Arquivos
+read_when: criar, mover ou modificar arquivos no repositório
+skip_if: tarefa não envolve criação ou modificação de arquivos
+summary: zonas livre e restrita, nomenclatura, estrutura de frontmatter, nunca criar na raiz
+---
+
 # Regras de Criação de Arquivos
 
-Diretrizes para Claude Code: onde pode criar livremente, quando pedir autorização, e o que nunca tocar.
+**Nunca criar arquivos fora de um diretório de domínio existente.** A raiz do repositório é zona proibida.
 
 ## Zona Livre — criar sem pedir
 
@@ -22,7 +29,7 @@ Diretrizes para Claude Code: onde pode criar livremente, quando pedir autorizaç
 | `{dominio}/data/raw/` | Dados brutos — imutáveis, nunca em contexto |
 | `{dominio}/archive/` | Só mover conteúdo com instrução explícita do usuário |
 | `{dominio}/ops/history/` | Só mover tarefas concluídas com instrução explícita |
-| Novo domínio (qualquer) | Usar `create_domain.py`, não criar manualmente |
+| Raiz do repositório | Proibido — todo arquivo pertence a um domínio |
 
 ## Nomenclatura
 
@@ -34,8 +41,9 @@ Seguir `.maestro-core/ops/templates/STRUCTURE.md`:
 - Relatório: `report_YYYY-MM-DD.md`
 
 ## Estrutura de Arquivos
-- Todos os arquivos `.md` e `.yml` devem começar com um frontmatter seguindo o exemplo:
-```
+
+Todos os `.md` e `.yml` devem começar com frontmatter:
+```yaml
 ---
 title: Brand Voice
 read_when: generating or reviewing copy, bios, posts, headlines
@@ -43,10 +51,23 @@ skip_if: technical task with no user-facing text output
 summary: tone of voice, brand attributes, editorial guide, banned words list
 ---
 ```
-- Todos os scripts (python, js, etc) devem começar com metadados na estrutura de exemplo, adaptando a forma de comentário da linguagem:
-```
+
+Scripts devem começar com metadados adaptados à linguagem:
+```python
 """
 purpose: Scaffold a new domain directory structure
 run: python create_domain.py <domain_name>
 """
 ```
+
+## Casos de Uso
+
+### Criar tarefa ou item de trabalho
+Criar em `{dominio}/ops/tasks/` como `{descricao}_{id}.md` — zona livre, sem pedir autorização.
+
+### Criar relatório ou análise
+Criar em `{dominio}/reports/` como `report_YYYY-MM-DD.md` — zona livre, sem pedir autorização.
+
+### Criar arquivo de contexto de domínio
+Criar em `{dominio}/context/` com frontmatter — zona restrita, pedir antes.
+Após criação, atualizar `{dominio}/context/playbook.md` com referência ao novo arquivo.

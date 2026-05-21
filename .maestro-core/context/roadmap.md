@@ -15,3 +15,4 @@
 
 # LATER
 - Repositório/página com skills pro Maestro (ex.: metric system, etc.)
+- Caminho enterprise: mover domain registry e context routing para banco relacional (ex.: Supabase) acessado via MCP — permite coordenação multi-máquina, audit de sessões e edição centralizada de regras sem push de código

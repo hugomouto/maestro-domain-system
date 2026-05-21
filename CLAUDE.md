@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working in this repository.
@@ -10,13 +15,22 @@ Sistema de context routing por domínios para agentes de IA. Cada domínio encap
 
 A estrutura completa do repositório está em **`domain.yaml`** — ele lista todos os domínios, arquivos-chave, regras de context routing e convenções de nomeação.
 
-| Dominio | Entrada | O que contem |
-|---|---|---|
+## Context Budget Protocol
 
-## Maestro
+```
+1. Ler o playbook.md do domínio relevante
+2. Decidir UMA VEZ quais context_files carregar (consultar domain.yaml)
+3. Carregar apenas o necessário
+4. Executar
+5. Encerrar — não recarregar
+```
 
-Carregar `.maestro-core/context/instructions.md` no início de cada sessão.
+`data/raw/` nunca entra em contexto. Regras detalhadas de routing em `domain.yaml` § `context_routing`.
 
 ## Criação de Arquivos
 
-Seguir as diretrizes em `.maestro-core/context/creation_rules.md`
+Seguir `.maestro-core/context/create_files.md` sempre que a tarefa envolver criar, mover ou modificar arquivos.
+
+## Criação de Domínios
+
+Seguir `.maestro-core/context/create_domain.md` sempre que a tarefa envolver criar ou modificar domínios.
