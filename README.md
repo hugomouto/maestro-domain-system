@@ -51,15 +51,12 @@ context_routing:
       - ./marketing/context/brand-strategy.md
       - ./marketing/context/brand-voice.md
       - ./marketing/context/visual-identity.md
-    never_load:        # explicitamente bloqueado
-      - ./marketing/data/raw/
 ```
 
 | Chave | Comportamento |
 |---|---|
 | `always_load` | O agente lê esses arquivos no início de toda sessão do domínio |
 | `load_on_demand` | O agente lê apenas se a tarefa exigir |
-| `never_load` | Nunca incluir como contexto (ex: dados brutos grandes) |
 
 ---
 
@@ -89,8 +86,11 @@ irm https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maest
 ```
 
 O script:
-- Cria `.maestro-core/` com scripts, templates e instruções
-- Cria `CLAUDE.md` apontando para as instruções do Maestro — ou acrescenta o bloco se `CLAUDE.md` já existir
+- Cria `.maestro-core/` com scripts, templates, hooks e arquivos de diretrizes
+- Cria `CLAUDE.md` com o Context Budget Protocol e referências às regras de criação — ou acrescenta o bloco se `CLAUDE.md` já existir
+- Registra hooks em `.claude/settings.json` para injetar automaticamente as regras de criação antes de qualquer operação de arquivo, sem depender da decisão do agente
+
+> **Dependência:** `jq` é necessário para o registro automático de hooks. No Mac/Linux, instale com `brew install jq` ou `apt install jq`. Se não estiver disponível, rode `maestro-update` novamente após instalar.
 
 ---
 
@@ -110,7 +110,7 @@ curl -sSL https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main
 irm https://raw.githubusercontent.com/hugomouto/maestro-domain-system/main/maestro-update.ps1 | iex
 ```
 
-O script atualiza apenas os arquivos core (`.maestro-core/ops/scripts/`, `.maestro-core/ops/templates/`, instruções) e nunca toca em `CLAUDE.md`, `playbook.md`, tasks, reports ou qualquer conteúdo do projeto.
+O script atualiza apenas os arquivos core (`.maestro-core/`) e nunca toca em `playbook.md`, tasks, reports ou qualquer conteúdo do projeto. Hooks já registrados não são duplicados.
 
 ---
 
